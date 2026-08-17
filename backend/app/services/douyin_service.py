@@ -160,7 +160,9 @@ def _extract_douyin_video(source_url: str) -> DouyinMediaInfo:
     try:
         resolved_url = client.resolve(source_url)
         try:
-            browser_item = client.read_browser_item(resolved_url)
+            browser_item = client.read_browser_item(
+                _normalize_browser_url(resolved_url)
+            )
         except OSError as error:
             browser_item = None
             logger.warning(
@@ -406,6 +408,22 @@ def _read_browser_failure_reason(stderr: str) -> str:
     """压缩浏览器脚本错误，供服务端日志区分超时与媒体流拒绝。"""
     lines = [line.strip() for line in stderr.splitlines() if line.strip()]
     return lines[-1] if lines else "unknown"
+
+
+def _normalize_browser_url(resolved_url: str) -> str:
+    """用户主页/弹窗（modal_id 等）先规范化为标准视频详情页再交给浏览器。
+
+    浏览器要等 /aweme/v1/web/aweme/detail/ 接口，该接口只在视频详情页
+    返回；直接用用户主页地址打开必然超时。这里把 query 里的 video id
+    转成 /video/{id}/，避免那段必失败的等待。
+    """
+    parsed_url = urlparse(resolved_url)
+    if re.search(r"/(?:video|note)/(\d+)", parsed_url.path or ""):
+        return resolved_url
+    video_id = extract_video_id(resolved_url)
+    if video_id:
+        return f"https://www.douyin.com/video/{video_id}/"
+    return resolved_url
 
 
 def _choose_page_url(resolved_url: str, video_id: str | None) -> str:
