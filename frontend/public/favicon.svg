@@ -3,7 +3,7 @@
   <rect width="64" height="64" rx="16" fill="#1c232b"/>
   <!-- 品牌字母标 Z：三段硬边横折，等宽粗笔画，直角转折 -->
   <path
-    d="M20 16h24M20 16l24 32M20 48h24"
+    d="M20 16h24M44 16l-24 32M20 48h24"
     fill="none"
     stroke="#f8f9fb"
     stroke-linecap="square"
