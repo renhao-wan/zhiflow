@@ -18,8 +18,23 @@ export function Header({ onHomeClick }: HeaderProps) {
         >
           <div
             aria-hidden="true"
-            className="h-11 w-11 shrink-0 rounded-2xl bg-zinc-950"
-          />
+            className="h-11 w-11 shrink-0 overflow-hidden rounded-2xl bg-[var(--ink)]"
+          >
+            <svg
+              className="h-full w-full"
+              viewBox="0 0 64 64"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 20h24M20 20l24 24M20 44h24"
+                stroke="var(--paper-raised)"
+                strokeLinecap="square"
+                strokeLinejoin="miter"
+                strokeWidth="6"
+              />
+            </svg>
+          </div>
           <div className="flex min-w-0 items-center gap-2">
             <div className="min-w-0">
               <p className="font-editorial truncate text-base font-semibold text-[var(--ink)]">
