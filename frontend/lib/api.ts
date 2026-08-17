@@ -342,7 +342,8 @@ export const apiClient = {
     return requestJson<ParseResponse>("/api/parse", {
       body: { url },
       method: "POST",
-      timeoutMs: 45000
+      // 抖音需要启动匿名浏览器取详情，单次就可能烧到数十秒，放宽到 60s
+      timeoutMs: 60000
     });
   },
   summarizeVideo(payload: SummarizeRequest): Promise<SummarizeResponse> {
