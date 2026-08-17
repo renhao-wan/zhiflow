@@ -20,20 +20,12 @@ export function Header({ onHomeClick }: HeaderProps) {
             aria-hidden="true"
             className="h-11 w-11 shrink-0 overflow-hidden rounded-2xl bg-[var(--ink)]"
           >
-            <svg
+            {/* 品牌标记统一引用 public/favicon.svg，单一来源 */}
+            <img
+              alt=""
               className="h-full w-full"
-              viewBox="0 0 64 64"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20 20h24M20 20l24 24M20 44h24"
-                stroke="var(--paper-raised)"
-                strokeLinecap="square"
-                strokeLinejoin="miter"
-                strokeWidth="6"
-              />
-            </svg>
+              src="/favicon.svg"
+            />
           </div>
           <div className="flex min-w-0 items-center gap-2">
             <div className="min-w-0">

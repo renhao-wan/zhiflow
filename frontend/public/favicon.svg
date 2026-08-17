@@ -1,14 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="16" fill="#211d17"/>
+  <!-- 知流品牌标记：墨底 + 冷雾白 Z，靛蓝强调点呼应"流"，统一冷墨档案 -->
+  <rect width="64" height="64" rx="16" fill="#1c232b"/>
   <!-- 品牌字母标 Z：三段硬边横折，等宽粗笔画，直角转折 -->
   <path
-    d="M20 18h24M20 18l24 28M20 46h24"
+    d="M20 16h24M20 16l24 32M20 48h24"
     fill="none"
-    stroke="#f4f0e6"
+    stroke="#f8f9fb"
     stroke-linecap="square"
     stroke-linejoin="miter"
     stroke-width="6"
   />
-  <!-- 极简强调点：陶土色小圆，呼应“流”，并打破纯黑白 -->
-  <circle cx="47" cy="50" r="4.5" fill="#d14b31"/>
+  <!-- 靛蓝强调点：呼应"流"，替代原项目陶土红 -->
+  <circle cx="46" cy="50" r="5" fill="#3b5bdb"/>
 </svg>
