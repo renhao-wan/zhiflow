@@ -4,7 +4,7 @@
 
 ## 创建配置文件
 
-推荐直接双击根目录的 `configure-ai.bat`。也可以手动复制：
+推荐直接双击根目录的 `02-configure-ai.bat`。也可以手动复制：
 
 ```powershell
 Copy-Item backend\.env.example backend\.env

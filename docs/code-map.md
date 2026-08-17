@@ -77,7 +77,9 @@ zhiflow-workspace/
 ├── docs/       项目上下文、架构、计划、交接文档
 ├── .github/    GitHub Actions、Issue 与 PR 模板
 ├── scripts/    Windows 本地启动脚本
-└── start-site.bat
+├── 01-start-site.bat    一键启动前后端
+├── 02-configure-ai.bat  配置 AI API
+└── 03-prepare-asr.bat   准备本地转写模型
 ```
 
 ## 前端入口
@@ -162,7 +164,7 @@ zhiflow-workspace/
 - 改 AI 校对术语：先读 `frontend/components/CorrectionTermSelector.tsx` 和 `backend/app/services/correction_term_service.py`；`docs/asr-glossary.md` 只负责首次初始化种子。
 - 改本地历史：先读 `frontend/components/RecentLibrary.tsx`、`backend/app/services/library_service.py`。
 - 改 Obsidian 导出：先读 `docs/architecture/obsidian-note-workflow.md`、`docs/obsidian-export.md`，再读 `backend/app/services/obsidian_export_service.py`。
-- 改启动器：先读 `start-site.bat`、`scripts/launch-site.ps1`、`scripts/wait-for-url.ps1`。
+- 改启动器：先读 `01-start-site.bat`、`scripts/launch-site.ps1`、`scripts/wait-for-url.ps1`。
 - 改公开安装说明：先读 `README.md`、`docs/installation.md`、`docs/configuration.md`、`docs/troubleshooting.md`。
 - 改 Obsidian 兼容说明：先读 `docs/obsidian-export.md`、`backend/app/services/obsidian_export_service.py`。
 - 改开源发布检查：先读 `SECURITY.md`、`CONTRIBUTING.md`、`.github/workflows/ci.yml`、`scripts/check-public-release.ps1`。

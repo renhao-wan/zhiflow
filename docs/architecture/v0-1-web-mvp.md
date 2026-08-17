@@ -178,7 +178,7 @@ scripts/
 - 前端 Demo fallback。
 - 未解析首页和解析后工作台分离。
 - 品牌区点击回首页。
-- Windows 启动器 `start-site.bat`。
+- Windows 启动器 `01-start-site.bat`。
 - 首页 UI 已多轮调整为偏实用高级感。
 - `POST /api/parse` 骨架和前端接入。
 - yt-dlp 元数据解析和格式列表标准化。
