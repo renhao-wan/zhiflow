@@ -1,0 +1,194 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  /* V3「编辑部粗野」token：暖纸 + 墨色 + 朱红 */
+  --paper: #f4f0e6;
+  --paper-raised: #fcfaf4;
+  --paper-deep: #eae4d6;
+  --ink: #211d17;
+  --ink-soft: #4a4438;
+  --muted: #857c6b;
+  --muted-strong: #625b4f;
+  --accent: #d14b31;
+  --accent-light: color-mix(in srgb, var(--accent) 72%, white);
+  --accent-deep: #b03a24;
+  --accent-soft: rgba(209, 75, 49, 0.1);
+  --line: #e2daca;
+  --line-strong: #cfc5b0;
+  --line-ink: #211d17;
+  /* 硬偏移阴影（新粗野签名） */
+  --shadow-hard-sm: 3px 3px 0 0 var(--ink);
+  --shadow-hard-md: 4px 4px 0 0 var(--ink);
+  --shadow-hard-lg: 6px 6px 0 0 var(--ink);
+  --shadow-hard-accent: 3px 3px 0 0 var(--accent);
+  --font-ui:
+    "Segoe UI Variable", "Segoe UI", "Microsoft YaHei UI", "PingFang SC",
+    "Noto Sans CJK SC", sans-serif;
+  --font-editorial:
+    "Source Han Serif SC", "Noto Serif CJK SC", "STZhongsong", "Songti SC",
+    STSong, SimSun, serif;
+  background: var(--paper);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--font-ui);
+  font-feature-settings: "kern" 1;
+  text-rendering: optimizeLegibility;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+input.focus-subtle:focus-visible {
+  outline: none;
+  outline-offset: 0;
+}
+
+::selection {
+  color: var(--ink);
+  background: rgba(209, 75, 49, 0.2);
+}
+
+.font-editorial {
+  font-family: var(--font-editorial);
+}
+
+.font-display {
+  font-family: var(--font-ui);
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.mono {
+  font-family:
+    "JetBrains Mono",
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    monospace;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.text-pretty {
+  text-wrap: pretty;
+}
+
+/* 硬阴影工具类 */
+.shadow-hard-sm {
+  box-shadow: var(--shadow-hard-sm);
+}
+
+.shadow-hard-md {
+  box-shadow: var(--shadow-hard-md);
+}
+
+.shadow-hard-lg {
+  box-shadow: var(--shadow-hard-lg);
+}
+
+.shadow-hard-accent {
+  box-shadow: var(--shadow-hard-accent);
+}
+
+/* 可交互墨框块：hover 时硬影收敛、块体下压，模拟"按下" */
+.ink-block {
+  border: 2px solid var(--line-ink);
+  box-shadow: var(--shadow-hard-sm);
+  transition:
+    box-shadow 120ms ease,
+    transform 120ms ease,
+    background-color 120ms ease;
+}
+
+.ink-block:hover {
+  box-shadow: 1px 1px 0 0 var(--ink);
+  transform: translate(2px, 2px);
+}
+
+.ink-block:active {
+  box-shadow: 0 0 0 0 var(--ink);
+  transform: translate(3px, 3px);
+}
+
+.editorial-enter {
+  opacity: 0;
+  filter: blur(4px);
+  transform: translateY(12px);
+  animation: editorial-enter 520ms cubic-bezier(0.2, 0, 0, 1) forwards;
+}
+
+.editorial-enter-delay-1 {
+  animation-delay: 80ms;
+}
+
+.editorial-enter-delay-2 {
+  animation-delay: 160ms;
+}
+
+.editorial-enter-delay-3 {
+  animation-delay: 240ms;
+}
+
+.transcript-excerpt-text {
+  cursor: text;
+  user-select: text;
+}
+
+.transcript-excerpt-text::selection {
+  color: var(--ink);
+  background: rgba(209, 75, 49, 0.22);
+}
+
+@keyframes editorial-enter {
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
