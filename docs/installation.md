@@ -17,10 +17,10 @@
 ```powershell
 git clone https://github.com/renhao-wan/zhiflow.git
 cd zhiflow
-.\启动网站.bat
+.\start-site.bat
 ```
 
-也可以下载源码 ZIP，解压后双击 `启动网站.bat`。
+也可以下载源码 ZIP，解压后双击 `start-site.bat`。
 
 启动器会：
 
@@ -45,7 +45,7 @@ cd zhiflow
 为了避免第一次使用 Whisper、SenseVoiceSmall 时再次等待，在项目根目录运行：
 
 ```powershell
-.\准备完整本地转写环境.bat
+.\prepare-asr.bat
 ```
 
 脚本会在下载前展示计划并等待确认。自动模式会检测 Windows NVIDIA 显卡；有 NVIDIA 显卡时安装项目内 CUDA 依赖和 CUDA 版 PyTorch，否则使用 CPU 环境。随后提前缓存：

@@ -8,7 +8,7 @@ $projectDir = Split-Path -Parent $PSScriptRoot
 $backendDir = Join-Path $projectDir "backend"
 $envPath = Join-Path $backendDir ".env"
 $examplePath = Join-Path $backendDir ".env.example"
-$uiPath = Join-Path $PSScriptRoot "configure-ai.zh-CN.json"
+$uiPath = Join-Path $PSScriptRoot "configure-ai.ui.json"
 $ui = Get-Content -LiteralPath $uiPath -Raw -Encoding UTF8 | ConvertFrom-Json
 
 if ($FirstRunOnly -and (Test-Path -LiteralPath $envPath)) {

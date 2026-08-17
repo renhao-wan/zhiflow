@@ -34,7 +34,7 @@
 多数视频与播客没有可以直接使用的完整文字。**如果没有本地转写模型，知流就无法稳定完成后续总结与问答。** 首次使用前，建议先运行：
 
 ```powershell
-.\准备完整本地转写环境.bat
+.\prepare-asr.bat
 ```
 
 脚本会先展示下载计划并等待确认，再根据电脑配置安装依赖，缓存 Whisper、SenseVoiceSmall 与 FSMN-VAD。完整 CPU 环境预计下载约 **3～5 GB**，建议预留 **6～10 GB**；完整 NVIDIA 环境预计下载约 **6～8 GB**，建议预留 **12～15 GB**。
@@ -128,12 +128,12 @@
 ```powershell
 git clone https://github.com/renhao-wan/zhiflow.git
 cd zhiflow
-.\启动网站.bat
+.\start-site.bat
 ```
 
-也可以下载源码 ZIP，解压后双击 `启动网站.bat`。
+也可以下载源码 ZIP，解压后双击 `start-site.bat`。
 
-**3. 配置 AI**：首次双击 `启动网站.bat` 且本机还没有 `backend/.env` 时，会自动弹出一个 Windows 配置窗口；它不是网页弹窗。
+**3. 配置 AI**：首次双击 `start-site.bat` 且本机还没有 `backend/.env` 时，会自动弹出一个 Windows 配置窗口；它不是网页弹窗。
 
 > [!IMPORTANT]
 > **真实的 AI 总结、内容问答与 AI 校对需要你自己的 API Key。** 在首次弹出的本机窗口里选择服务商并填写 Key；保存后自动写入 `backend/.env`，不会进入网页前端，也不会提交到 Git。
@@ -142,7 +142,7 @@ cd zhiflow
   <img src="./assets/readme/api-setup.svg" width="100%" alt="首次启动时配置自己的 AI 服务商、API Key 和模型，保存到本机 backend/.env">
 </p>
 
-如果暂时跳过，链接解析、本地历史、本地语音识别和 Markdown 导出仍可使用，但 AI 总结与问答只能得到本地降级结果。首次启动后，这个窗口不会反复自动出现；需要修改时双击 `配置 AI.bat` 重新打开。
+如果暂时跳过，链接解析、本地历史、本地语音识别和 Markdown 导出仍可使用，但 AI 总结与问答只能得到本地降级结果。首次启动后，这个窗口不会反复自动出现；需要修改时双击 `configure-ai.bat` 重新打开。
 
 配置完成后，启动器会创建项目虚拟环境、安装前后端依赖，并打开 `http://localhost:3000`。
 

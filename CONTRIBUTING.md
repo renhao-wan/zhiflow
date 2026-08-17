@@ -21,7 +21,7 @@ cd zhiflow
 Copy-Item backend/.env.example backend/.env
 ```
 
-首次体验可双击 `启动网站.bat`。开发时分别启动后端和前端：
+首次体验可双击 `start-site.bat`。开发时分别启动后端和前端：
 
 ```powershell
 cd backend

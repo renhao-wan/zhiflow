@@ -169,6 +169,26 @@ input.focus-subtle:focus-visible {
   user-select: text;
 }
 
+/* GSAP SplitText 动画类：类名被 SplitText.tsx 以字符串注入，须保持全局 */
+.split-parent {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  visibility: hidden;
+  white-space: normal;
+  overflow-wrap: break-word;
+}
+
+.split-word,
+.split-char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+.split-line {
+  display: block;
+}
+
 .transcript-excerpt-text::selection {
   color: var(--ink);
   background: rgba(209, 75, 49, 0.22);

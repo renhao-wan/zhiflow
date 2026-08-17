@@ -15,10 +15,9 @@ zhiflow-workspace/
 ## 先读顺序
 
 1. `docs/code-map.md`：当前这份快速定位地图。
-2. `docs/project-context.md`：项目级稳定事实、技术栈、红线和文档索引。
+2. `README.md`：项目级稳定事实、技术栈、功能概览和入门步骤。
 3. 相关 `docs/architecture/*.md`：模块架构。
-4. 相关 `docs/handoffs/*.md`：近期开发收口和下一步。
-5. 最后再读前后端具体代码。
+4. 最后再读前后端具体代码。
 
 ## 常用快速搜索命令
 
@@ -78,7 +77,7 @@ zhiflow-workspace/
 ├── docs/       项目上下文、架构、计划、交接文档
 ├── .github/    GitHub Actions、Issue 与 PR 模板
 ├── scripts/    Windows 本地启动脚本
-└── 启动网站.bat
+└── start-site.bat
 ```
 
 ## 前端入口
@@ -156,14 +155,14 @@ zhiflow-workspace/
 - 改 B 站：先读 `docs/architecture/bilibili-service.md`，再读 `backend/app/services/bilibili_service.py`、`backend/app/services/transcript_service.py`。
 - 改抖音：先读 `docs/architecture/v0-4-douyin-adapter.md`，再读 `backend/app/services/douyin_service.py`。
 - 改小红书：先读 `docs/architecture/xiaohongshu-public-video.md`，再读 `backend/app/services/xiaohongshu_service.py`、`backend/app/services/media_source_service.py`、`frontend/components/TranscribeRequiredState.tsx` 和 `frontend/lib/platform-display.ts`。
-- 改小宇宙：先读 `docs/plans/2026-05-10-xiaoyuzhou-podcast-source.md`，再读 `backend/app/services/xiaoyuzhou_service.py`。
+- 改小宇宙：先读 `backend/app/services/xiaoyuzhou_service.py`。
 - 改总结 / 导图：先读 `frontend/components/SummaryTab.tsx`、`frontend/components/MindmapTab.tsx`、`backend/app/services/summarize_service.py`。
 - 改 QA：先读 `frontend/components/QaTab.tsx`、`backend/app/services/qa_service.py`。
 - 改 AI 转写稿：先读 `frontend/components/TranscriptTab.tsx`、`frontend/components/TranscribeSettingsPanel.tsx`、`frontend/components/TranscribeTaskToasts.tsx`、`frontend/lib/transcribe-settings.ts`、`backend/app/services/asr_service.py`、`backend/app/services/sensevoice_service.py`、`backend/app/services/transcribe_context_service.py`、`backend/app/services/transcript_correction_service.py`。
 - 改 AI 校对术语：先读 `frontend/components/CorrectionTermSelector.tsx` 和 `backend/app/services/correction_term_service.py`；`docs/asr-glossary.md` 只负责首次初始化种子。
 - 改本地历史：先读 `frontend/components/RecentLibrary.tsx`、`backend/app/services/library_service.py`。
-- 改 Obsidian 导出：先读 `docs/plans/2026-06-12-obsidian-note-workflow-prd.md`、`backend/app/services/obsidian_export_service.py`。
-- 改启动器：先读 `启动网站.bat`、`scripts/launch-site.ps1`、`scripts/wait-for-url.ps1`。
+- 改 Obsidian 导出：先读 `docs/architecture/obsidian-note-workflow.md`、`docs/obsidian-export.md`，再读 `backend/app/services/obsidian_export_service.py`。
+- 改启动器：先读 `start-site.bat`、`scripts/launch-site.ps1`、`scripts/wait-for-url.ps1`。
 - 改公开安装说明：先读 `README.md`、`docs/installation.md`、`docs/configuration.md`、`docs/troubleshooting.md`。
 - 改 Obsidian 兼容说明：先读 `docs/obsidian-export.md`、`backend/app/services/obsidian_export_service.py`。
 - 改开源发布检查：先读 `SECURITY.md`、`CONTRIBUTING.md`、`.github/workflows/ci.yml`、`scripts/check-public-release.ps1`。
