@@ -2,13 +2,13 @@ import os
 import unittest
 from unittest.mock import patch
 
-from app import main
+from app.routers import system as system_router
 
 
 class AsrStatusTests(unittest.TestCase):
     def test_sensevoice_is_recommended_when_available(self) -> None:
         with patch(
-            "app.main.get_sensevoice_status",
+            "app.routers.system.get_sensevoice_status",
             return_value=(True, None),
         ):
             with patch.dict(
@@ -16,17 +16,17 @@ class AsrStatusTests(unittest.TestCase):
                 {"ASR_WHISPER_MODEL": "large-v3-turbo"},
                 clear=False,
             ):
-                response = main.get_asr_status()
+                response = system_router.get_asr_status()
 
         self.assertEqual(response.recommended_engine, "sensevoice_small")
         self.assertEqual(response.whisper_model, "large-v3-turbo")
 
     def test_whisper_is_recommended_when_sensevoice_is_unavailable(self) -> None:
         with patch(
-            "app.main.get_sensevoice_status",
+            "app.routers.system.get_sensevoice_status",
             return_value=(False, "依赖未安装"),
         ):
-            response = main.get_asr_status()
+            response = system_router.get_asr_status()
 
         self.assertEqual(response.recommended_engine, "local_whisper")
         self.assertFalse(response.sensevoice_available)

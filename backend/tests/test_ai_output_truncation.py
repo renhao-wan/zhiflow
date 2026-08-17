@@ -3,7 +3,7 @@ from unittest.mock import patch
 
 from fastapi import HTTPException
 
-from app.main import answer_media_question, summarize_video
+from app.routers.generate import answer_media_question, summarize_video
 from app.schemas import QaRequest, SummarizeRequest
 from app.services.deepseek_client import DeepSeekOutputTruncatedError
 
@@ -14,9 +14,9 @@ class AiOutputTruncationApiTests(unittest.TestCase):
             transcript_plain_text="用于测试的内容文本。",
         )
 
-        with patch("app.main.enforce_rate_limit"):
+        with patch("app.routers.generate.enforce_rate_limit"):
             with patch(
-                "app.main.summarize_transcript",
+                "app.routers.generate.summarize_transcript",
                 side_effect=DeepSeekOutputTruncatedError("输出不完整"),
             ):
                 with self.assertRaises(HTTPException) as raised:
@@ -35,9 +35,9 @@ class AiOutputTruncationApiTests(unittest.TestCase):
             transcript_plain_text="用于测试的内容文本。",
         )
 
-        with patch("app.main.enforce_rate_limit"):
+        with patch("app.routers.generate.enforce_rate_limit"):
             with patch(
-                "app.main.answer_question",
+                "app.routers.generate.answer_question",
                 side_effect=DeepSeekOutputTruncatedError("输出不完整"),
             ):
                 with self.assertRaises(HTTPException) as raised:
