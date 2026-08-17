@@ -9,7 +9,12 @@ import {
   Loader2
 } from "lucide-react";
 import { apiClient } from "@/lib/api";
-import { getDisplayFormats } from "@/lib/format-display";
+import {
+  formatFilesize,
+  getDisplayFormats,
+  getFormatHeight,
+  isVideoOnly
+} from "@/lib/format-display";
 import type { FormatDiagnostics, VideoFormat } from "@/lib/types";
 
 interface FormatSelectorProps {
@@ -24,23 +29,6 @@ type DownloadStatus = "idle" | "downloading" | "success" | "error";
 interface FormatDownloadState {
   status: DownloadStatus;
   message?: string;
-}
-
-function formatFilesize(filesize: number | null): string {
-  if (!filesize) {
-    return "未知大小";
-  }
-
-  return `${(filesize / 1024 / 1024).toFixed(1)} MB`;
-}
-
-function getFormatHeight(format: VideoFormat): number {
-  const match = format.resolution.match(/^(\d+)p$/);
-  if (!match) {
-    return 0;
-  }
-
-  return Number.parseInt(match[1], 10);
 }
 
 function getFormatHint(
@@ -80,10 +68,6 @@ function getFormatHint(
   }
 
   return "文件将通过浏览器下载，请确保你拥有相应内容的访问和处理权限。";
-}
-
-function isVideoOnly(format: VideoFormat): boolean {
-  return format.vcodec !== "none" && format.acodec === "none";
 }
 
 function getDownloadButtonClassName(status: DownloadStatus): string {

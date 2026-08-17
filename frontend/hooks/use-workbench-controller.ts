@@ -71,7 +71,6 @@ export function useWorkbenchController() {
     setFilter: setLibraryFilter,
     stats: libraryStats
   } = useLibraryWorkspace({ onError: setErrorMessage });
-  const [activeDemoId, setActiveDemoId] = useState<string | null>(null);
   const [loadingDemoId, setLoadingDemoId] = useState<string | null>(null);
   const [loadingLibraryVideoId, setLoadingLibraryVideoId] = useState<string | null>(
     null
@@ -344,7 +343,6 @@ export function useWorkbenchController() {
         inputUrlRef.current.trim() === trimmedUrl ||
         activeSourceUrlRef.current === trimmedUrl
       ) {
-        setActiveDemoId(null);
         setUrl(response.source_url);
         setSummaryGenerationMeta(getSummaryMetaFromDetail(response));
         setActiveTab("summary");
@@ -384,7 +382,6 @@ export function useWorkbenchController() {
     setSummaryGenerationMeta(null);
     setLoadingDemoId(demoId);
     setLoadingLibraryVideoId(null);
-    setActiveDemoId(demoId);
 
     try {
       const response = await apiClient.getDemoDetail(demoId);
@@ -406,7 +403,6 @@ export function useWorkbenchController() {
 
   const handleGoHome = () => {
     setDetail(null);
-    setActiveDemoId(null);
     setLoadingDemoId(null);
     setLoadingLibraryVideoId(null);
     resetLibraryInteractionState();
@@ -425,7 +421,6 @@ export function useWorkbenchController() {
     setSummaryErrorMessage(null);
     setLoadingDemoId(null);
     setLoadingLibraryVideoId(item.video_id);
-    setActiveDemoId(null);
 
     try {
       const response = await apiClient.getLibraryDetail(item.video_id);

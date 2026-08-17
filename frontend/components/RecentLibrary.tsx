@@ -44,6 +44,29 @@ interface RecentLibraryProps {
   onRefresh: () => void;
 }
 
+const TABLE_HEADERS = ["内容", "来源", "状态", "时间", "操作"];
+const TABLE_GRID_CLASS =
+  "grid-cols-[minmax(0,1fr)_84px] sm:grid-cols-[minmax(0,1fr)_104px_92px_86px_84px]";
+
+function LibraryTableHeader() {
+  return (
+    <div
+      className={`grid ${TABLE_GRID_CLASS} items-center gap-4 border-y-2 border-[var(--line-ink)] py-2.5`}
+    >
+      {TABLE_HEADERS.map((label, index) => (
+        <span
+          className={`text-xs font-semibold text-[var(--muted)] ${
+            index > 0 && index < 4 ? "hidden sm:block" : ""
+          }`}
+          key={label}
+        >
+          {label}
+        </span>
+      ))}
+    </div>
+  );
+}
+
 function LibraryThumbnail({ item }: { item: LibraryItem }) {
   const thumbnailUrl = getDisplayThumbnailUrl(item.thumbnail);
   const fallbackLabel = isPodcastMedia(item) ? "播客" : getPlatformLabel(item.platform);
@@ -177,20 +200,11 @@ export function RecentLibrary({
       {isLoading ? (
         <div aria-label="正在加载最近档案" aria-live="polite" role="status">
           <span className="sr-only">正在加载最近档案</span>
-          <div className="grid grid-cols-[minmax(0,1fr)_84px] items-center gap-4 border-y-2 border-[var(--line-ink)] py-2.5 sm:grid-cols-[minmax(0,1fr)_104px_92px_86px_84px]">
-            {["内容", "来源", "状态", "时间", "操作"].map((label, index) => (
-              <span
-                className={`text-xs font-semibold text-[var(--muted)] ${index > 0 && index < 4 ? "hidden sm:block" : ""}`}
-                key={label}
-              >
-                {label}
-              </span>
-            ))}
-          </div>
+          <LibraryTableHeader />
           <div className="divide-y divide-[var(--line-ink)]/60">
             {[0, 1, 2].map((rowIndex) => (
               <div
-                className="grid h-[68px] grid-cols-[minmax(0,1fr)_84px] items-center gap-4 sm:grid-cols-[minmax(0,1fr)_104px_92px_86px_84px]"
+                className={`grid h-[68px] ${TABLE_GRID_CLASS} items-center gap-4`}
                 key={rowIndex}
               >
                 <span className="h-9 w-3/4 animate-pulse bg-[var(--paper-deep)]" />
@@ -213,16 +227,7 @@ export function RecentLibrary({
         </div>
       ) : (
         <div>
-          <div className="grid grid-cols-[minmax(0,1fr)_84px] items-center gap-4 border-y-2 border-[var(--line-ink)] py-2.5 sm:grid-cols-[minmax(0,1fr)_104px_92px_86px_84px]">
-            {["内容", "来源", "状态", "时间", "操作"].map((label, index) => (
-              <span
-                className={`text-xs font-semibold text-[var(--muted)] ${index > 0 && index < 4 ? "hidden sm:block" : ""}`}
-                key={label}
-              >
-                {label}
-              </span>
-            ))}
-          </div>
+          <LibraryTableHeader />
 
           <div className="divide-y divide-[var(--line-ink)]/60">
             {visibleItems.map((item) => {
@@ -234,7 +239,7 @@ export function RecentLibrary({
 
               return (
                 <div
-                  className={`group grid min-h-[68px] grid-cols-[minmax(0,1fr)_84px] items-center gap-4 transition-colors hover:bg-[var(--paper-raised)] sm:grid-cols-[minmax(0,1fr)_104px_92px_86px_84px] ${
+                  className={`group grid min-h-[68px] ${TABLE_GRID_CLASS} items-center gap-4 transition-colors hover:bg-[var(--paper-raised)] ${
                     isActive
                       ? "bg-[var(--accent-soft)]/70 shadow-[inset_4px_0_0_0_var(--accent)]"
                       : ""

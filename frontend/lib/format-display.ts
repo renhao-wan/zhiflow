@@ -1,8 +1,20 @@
 import type { VideoFormat } from "./types";
 
-function getFormatHeight(format: VideoFormat): number {
+export function getFormatHeight(format: VideoFormat): number {
   const match = format.resolution.match(/^(\d+)p$/i);
   return match ? Number.parseInt(match[1], 10) : 0;
+}
+
+export function formatFilesize(filesize: number | null): string {
+  if (!filesize) {
+    return "未知大小";
+  }
+
+  return `${(filesize / 1024 / 1024).toFixed(1)} MB`;
+}
+
+export function isVideoOnly(format: VideoFormat): boolean {
+  return format.vcodec !== "none" && format.acodec === "none";
 }
 
 function getCodecPriority(codec: string): number {

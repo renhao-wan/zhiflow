@@ -8,7 +8,6 @@ import {
   FileDown,
   GitCompareArrows,
   Loader2,
-  Plus,
   Search
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -20,11 +19,12 @@ import type {
 } from "@/lib/types";
 import { TranscriptComparisonColumn } from "./TranscriptComparisonColumn";
 import { IconActionButton } from "./IconActionButton";
+import { SelectionToolbar } from "./SelectionToolbar";
 import { TranscriptNoteWorkflow } from "./TranscriptNoteWorkflow";
+import { TranscriptSegmentRow } from "./TranscriptSegmentRow";
 import { TranscribeRequiredState } from "./TranscribeRequiredState";
 import {
   downloadTextFile,
-  formatTimestamp,
   getTextSourceHint,
   getTextSourceSlug,
   getTranscriptSourceLabel,
@@ -197,27 +197,13 @@ export function TranscriptTab({
     );
   };
 
-  const renderSelectionToolbar = () =>
-    selectedExcerpt ? (
-      <div
-        className="fixed z-50 flex -translate-x-1/2 items-center gap-2 rounded-[2px] border border-[var(--line-ink)] bg-[var(--paper-raised)]/95 px-3 py-2 text-xs font-medium text-[var(--ink-soft)] shadow-[0_16px_40px_rgba(33,29,23,0.16)] backdrop-blur"
-        style={{ left: selectedExcerpt.left, top: selectedExcerpt.top }}
-        onMouseDown={(event) => event.preventDefault()}
-      >
-        <span className="mono tabular-nums text-[var(--accent)]">
-          已选 {selectedExcerpt.charCount} 字
-        </span>
-        <button
-          className="inline-flex h-8 items-center justify-center gap-1.5 rounded-[2px] bg-[var(--ink)] px-3 text-xs font-semibold text-[var(--paper)] transition-colors hover:bg-[var(--accent-deep)] disabled:cursor-not-allowed disabled:opacity-60"
-          disabled={isSavingDraft}
-          type="button"
-          onClick={() => void handleAddSelectedExcerpt()}
-        >
-          <Plus className="h-3.5 w-3.5" />
-          加入摘录
-        </button>
-      </div>
-    ) : null;
+  const renderSelectionToolbar = () => (
+    <SelectionToolbar
+      isAdding={isSavingDraft}
+      onAdd={() => void handleAddSelectedExcerpt()}
+      selection={selectedExcerpt}
+    />
+  );
 
   const renderNoteWorkflow = () => (
     <TranscriptNoteWorkflow
@@ -444,29 +430,10 @@ export function TranscriptTab({
               >
                 {visibleSegments.length > 0 ? (
                   visibleSegments.map((segment) => (
-                    <div
-                      className="grid gap-3 border-b border-[var(--line-strong)] bg-[var(--paper-raised)] px-4 py-3 last:border-b-0 sm:grid-cols-[86px_minmax(0,1fr)]"
+                    <TranscriptSegmentRow
                       key={`${segment.start}-${segment.end}-${segment.speaker ?? ""}-${segment.text}`}
-                    >
-                      <div className="select-none space-y-1">
-                        <div className="mono text-xs text-[var(--muted)]">
-                          {formatTimestamp(segment.start)}
-                        </div>
-                        {segment.speaker ? (
-                          <span className="inline-flex max-w-[76px] truncate rounded-[2px] bg-[var(--accent-soft)] px-2 py-0.5 text-xs font-medium text-[var(--accent)]">
-                            {segment.speaker}
-                          </span>
-                        ) : null}
-                      </div>
-                      <p
-                        className="transcript-excerpt-text text-sm leading-6 text-[var(--ink-soft)]"
-                        data-excerpt-end={segment.end}
-                        data-excerpt-start={segment.start}
-                        data-transcript-excerpt="true"
-                      >
-                        {segment.text}
-                      </p>
-                    </div>
+                      segment={segment}
+                    />
                   ))
                 ) : (
                   <div className="px-4 py-10 text-center text-sm text-[var(--muted)]">
