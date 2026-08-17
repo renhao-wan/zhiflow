@@ -35,12 +35,12 @@ export function DraftHighlightsSection({
   return (
     <section className="p-3">
       {draftMessage ? (
-        <div className="mb-3 border-2 border-[var(--line-ink)] bg-[#e9f2ea] px-3 py-2 text-xs text-[#2f5d3a]">
+        <div className="mb-3 border-2 border-[var(--line-ink)] bg-[var(--success-tint)] px-3 py-2 text-xs text-[var(--success-ink)]">
           {draftMessage} 共 {draftHighlights.length} 条。
         </div>
       ) : null}
       {draftErrorMessage ? (
-        <div className="mb-3 border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-xs text-[#7a4a1f]">
+        <div className="mb-3 border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-xs text-[var(--error-ink)]">
           {draftErrorMessage}
         </div>
       ) : null}

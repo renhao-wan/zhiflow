@@ -146,7 +146,7 @@ export function QaTab({
           onTranscribe={onTranscribe}
         />
         {transcribeErrorMessage ? (
-          <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+          <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
             {transcribeErrorMessage}
           </div>
         ) : null}
@@ -194,7 +194,7 @@ export function QaTab({
       </section>
 
       {transcribeErrorMessage ? (
-        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
           {transcribeErrorMessage}
         </div>
       ) : null}
@@ -247,7 +247,7 @@ export function QaTab({
       </form>
 
       {errorMessage ? (
-        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
           {errorMessage}
         </div>
       ) : null}
@@ -260,7 +260,7 @@ export function QaTab({
               className={`inline-flex min-h-8 items-center rounded-[2px] px-3 text-xs font-medium ${
                 answer.is_ai_generated
                   ? "bg-[var(--accent-soft)] text-[var(--accent)]"
-                  : "bg-[#f7ead9] text-[#7a4a1f]"
+                  : "bg-[var(--error-tint)] text-[var(--error-ink)]"
               }`}
             >
               {answer.is_ai_generated

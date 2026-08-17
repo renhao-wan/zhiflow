@@ -40,11 +40,11 @@ function getTaskStatusLabel(task: WorkbenchTask): string {
 
 function getTaskIcon(task: WorkbenchTask) {
   if (task.status === "success") {
-    return <CheckCircle2 className="h-4 w-4 text-[#2f5d3a]" aria-hidden="true" />;
+    return <CheckCircle2 className="h-4 w-4 text-[var(--success-ink)]" aria-hidden="true" />;
   }
 
   if (task.status === "error") {
-    return <CircleAlert className="h-4 w-4 text-[#7a4a1f]" aria-hidden="true" />;
+    return <CircleAlert className="h-4 w-4 text-[var(--error-ink)]" aria-hidden="true" />;
   }
 
   return <Loader2 className="h-4 w-4 animate-spin text-[var(--accent)]" aria-hidden="true" />;
@@ -82,12 +82,12 @@ export function TranscribeTaskToasts({
                 </p>
               ) : null}
               {task.status === "success" && task.message ? (
-                <p className="mt-1 text-xs leading-5 text-[#2f5d3a]">
+                <p className="mt-1 text-xs leading-5 text-[var(--success-ink)]">
                   {task.message}
                 </p>
               ) : null}
               {task.status === "error" && task.errorMessage ? (
-                <p className="mt-1 text-xs leading-5 text-[#7a4a1f]">
+                <p className="mt-1 text-xs leading-5 text-[var(--error-ink)]">
                   {task.errorMessage}
                 </p>
               ) : null}

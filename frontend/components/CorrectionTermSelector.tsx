@@ -118,7 +118,7 @@ export function CorrectionTermSelector({
       </div>
 
       {!correctionAvailable ? (
-        <div className="flex gap-2 rounded-[2px] border border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-xs leading-5 text-[#7a4a1f]">
+        <div className="flex gap-2 rounded-[2px] border border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-xs leading-5 text-[var(--error-ink)]">
           <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0" />
           AI 校对当前未启用，所选术语不会应用。
         </div>
@@ -219,7 +219,7 @@ export function CorrectionTermSelector({
         </div>
       ) : null}
 
-      {feedback ? <p className="text-xs leading-5 text-[#7a4a1f]">{feedback}</p> : null}
+      {feedback ? <p className="text-xs leading-5 text-[var(--error-ink)]">{feedback}</p> : null}
     </section>
   );
 }

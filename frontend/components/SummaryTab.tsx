@@ -128,7 +128,7 @@ export function SummaryTab({
           />
 
           {transcribeErrorMessage ? (
-            <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+            <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
               {transcribeErrorMessage}
             </div>
           ) : null}
@@ -145,7 +145,7 @@ export function SummaryTab({
         />
 
         {summaryErrorMessage ? (
-          <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+          <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
             {summaryErrorMessage}
           </div>
         ) : null}
@@ -189,7 +189,7 @@ export function SummaryTab({
                 summaryGenerationMeta
                   ? summaryGenerationMeta.isAiGenerated
                     ? "border-[var(--line-ink)] bg-[var(--accent-soft)] text-[var(--accent)]"
-                    : "border-[var(--line-ink)] bg-[#f7ead9] text-[#7a4a1f]"
+                    : "border-[var(--line-ink)] bg-[var(--error-tint)] text-[var(--error-ink)]"
                   : "border-[var(--line-strong)] text-[var(--muted)]"
               }`}
             >
@@ -204,7 +204,7 @@ export function SummaryTab({
       </section>
 
       {!hasTranscript ? (
-        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-4 py-3 text-sm leading-6 text-[#7a4a1f]">
+        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-4 py-3 text-sm leading-6 text-[var(--error-ink)]">
           <div>
             <p className="font-medium">当前没有可用于总结的内容文本。</p>
             <p className="mt-1">
@@ -230,7 +230,7 @@ export function SummaryTab({
       ) : null}
 
       {transcribeErrorMessage ? (
-        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
           {transcribeErrorMessage}
         </div>
       ) : null}
@@ -259,7 +259,7 @@ export function SummaryTab({
       ) : null}
 
       {summaryErrorMessage ? (
-        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+        <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
           {summaryErrorMessage}
         </div>
       ) : null}
@@ -360,9 +360,9 @@ export function SummaryTab({
       ))}
 
       {summary.content_boundaries?.length ? (
-        <section className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-4 py-4">
-          <h3 className="text-sm font-semibold text-[#6b3f1a]">内容边界与待核实项</h3>
-          <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-6 text-[#7a4a1f]">
+        <section className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-4 py-4">
+          <h3 className="text-sm font-semibold text-[var(--error-ink-deep)]">内容边界与待核实项</h3>
+          <ul className="mt-2 list-disc space-y-1.5 pl-5 text-sm leading-6 text-[var(--error-ink)]">
             {summary.content_boundaries.map((item) => (
               <li key={item}>{item}</li>
             ))}

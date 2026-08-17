@@ -290,7 +290,7 @@ export function ConfirmDialog({
     >
       <p className="text-base font-medium leading-7 text-[var(--ink)]">{description}</p>
       {errorMessage ? (
-        <p className="mt-4 rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+        <p className="mt-4 rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
           {errorMessage}
         </p>
       ) : null}

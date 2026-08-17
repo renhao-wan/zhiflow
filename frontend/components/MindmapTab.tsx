@@ -159,7 +159,7 @@ export function MindmapTab({
             onTranscribe={onTranscribe}
           />
           {transcribeErrorMessage ? (
-            <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+            <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
               {transcribeErrorMessage}
             </div>
           ) : null}
@@ -250,7 +250,7 @@ export function MindmapTab({
         ) : null}
 
         {renderState === "error" && renderError ? (
-          <div className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-[2px] border border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-xs text-[#7a4a1f] shadow-sm">
+          <div className="absolute left-3 top-3 inline-flex items-center gap-2 rounded-[2px] border border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-xs text-[var(--error-ink)] shadow-sm">
             <AlertCircle className="h-4 w-4" aria-hidden="true" />
             {renderError}
           </div>

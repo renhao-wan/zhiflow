@@ -19,6 +19,14 @@
   --line: #d7dce1;
   --line-strong: #b8c0c9;
   --line-ink: #1c232b;
+  /* 语义色（冷墨档案）：警示用冷靛、成功用冷青绿，替代原项目的暖棕/奶油残留 */
+  --error-tint: #eef0f7;
+  --error-ink: #3a4450;
+  --error-ink-deep: #2b3440;
+  --success-tint: #e8f1ef;
+  --success-ink: #2f5f5b;
+  --placeholder-muted: #8a939c;
+  --warn-glow: rgba(59, 91, 219, 0.14);
   /* 硬偏移阴影（新粗野签名） */
   --shadow-hard-sm: 3px 3px 0 0 var(--ink);
   --shadow-hard-md: 4px 4px 0 0 var(--ink);

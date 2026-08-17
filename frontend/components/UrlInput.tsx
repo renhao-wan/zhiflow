@@ -32,7 +32,7 @@ export function UrlInput({
               aria-hidden="true"
             />
             <input
-              className="focus-subtle h-full min-h-[54px] w-full border-0 bg-transparent pl-11 pr-4 text-base text-[var(--ink)] outline-none placeholder:text-[#8f8675] disabled:cursor-not-allowed disabled:text-[var(--muted)]"
+              className="focus-subtle h-full min-h-[54px] w-full border-0 bg-transparent pl-11 pr-4 text-base text-[var(--ink)] outline-none placeholder:text-[var(--placeholder-muted)] disabled:cursor-not-allowed disabled:text-[var(--muted)]"
               inputMode="url"
               type="text"
               value={value}

@@ -238,7 +238,7 @@ export function TranscriptTab({
           onTranscribe={onTranscribe}
         />
         {transcribeErrorMessage ? (
-          <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+          <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
             {transcribeErrorMessage}
           </div>
         ) : null}
@@ -270,20 +270,20 @@ export function TranscriptTab({
     return (
       <div className="space-y-4">
         {renderSelectionToolbar()}
-        <section className="rounded-[2px] bg-[#f7ead9] p-4 shadow-[inset_0_0_0_1px_rgba(180,83,9,0.16)]">
+        <section className="rounded-[2px] bg-[var(--error-tint)] p-4 shadow-[inset_0_0_0_1px_var(--warn-glow)]">
           <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
             <div className="flex gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-[var(--paper-raised)] text-[#7a4a1f] shadow-[0_10px_24px_rgba(180,83,9,0.12)]">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[2px] bg-[var(--paper-raised)] text-[var(--error-ink)] shadow-[0_10px_24px_var(--warn-glow)]">
                 <BookOpenText className="h-5 w-5" aria-hidden="true" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-[#6b3f1a]">
+                <p className="text-sm font-semibold text-[var(--error-ink-deep)]">
                   {sourceLabel}
                 </p>
-                <p className="mt-1 text-xs leading-5 text-[#7a4a1f]">
+                <p className="mt-1 text-xs leading-5 text-[var(--error-ink)]">
                   {sourceHint}
                 </p>
-                <p className="mt-2 text-xs leading-5 text-[#7a4a1f]">
+                <p className="mt-2 text-xs leading-5 text-[var(--error-ink)]">
                   共 {shownotesParagraphs.length} 个原文段落。它适合快速了解节目主题；如果要按完整对话总结，请先生成转写稿。
                 </p>
               </div>
@@ -338,7 +338,7 @@ export function TranscriptTab({
         </div>
 
         {transcribeErrorMessage ? (
-          <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[#f7ead9] px-3 py-2 text-sm text-[#7a4a1f]">
+          <div className="rounded-[2px] border-2 border-[var(--line-ink)] bg-[var(--error-tint)] px-3 py-2 text-sm text-[var(--error-ink)]">
             {transcribeErrorMessage}
           </div>
         ) : null}

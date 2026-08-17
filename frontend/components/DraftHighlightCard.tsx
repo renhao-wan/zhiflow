@@ -71,10 +71,10 @@ export function DraftHighlightCard({
             <span className="shrink-0 text-[var(--accent)]">保存中</span>
           ) : null}
           {editStatus === "saved" ? (
-            <span className="shrink-0 text-[#2f5d3a]">已保存</span>
+            <span className="shrink-0 text-[var(--success-ink)]">已保存</span>
           ) : null}
           {editStatus === "error" ? (
-            <span className="shrink-0 text-[#7a4a1f]">保存失败</span>
+            <span className="shrink-0 text-[var(--error-ink)]">保存失败</span>
           ) : null}
         </div>
         <div className="flex shrink-0 items-center gap-2">

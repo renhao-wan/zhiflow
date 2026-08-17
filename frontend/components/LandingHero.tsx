@@ -163,7 +163,7 @@ export function LandingHero({
                 />
                 <input
                   aria-label="公开媒体链接"
-                  className="min-h-[54px] w-full border-0 bg-transparent pl-11 pr-3 text-base text-[var(--ink)] outline-none placeholder:text-[#9b927f] focus-visible:outline-none disabled:cursor-not-allowed"
+                  className="min-h-[54px] w-full border-0 bg-transparent pl-11 pr-3 text-base text-[var(--ink)] outline-none placeholder:text-[var(--placeholder-muted)] focus-visible:outline-none disabled:cursor-not-allowed"
                   inputMode="url"
                   placeholder="粘贴 B 站、小红书、小宇宙或抖音公开链接"
                   type="text"

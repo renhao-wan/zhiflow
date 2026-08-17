@@ -75,7 +75,7 @@ function getDownloadButtonClassName(status: DownloadStatus): string {
     "inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-[2px] border-2 border-[var(--line-ink)] transition-[box-shadow,transform,background-color,color] duration-150 disabled:cursor-not-allowed disabled:opacity-60";
 
   if (status === "success") {
-    return `${baseClassName} bg-[#e9f2ea] text-[#2f5d3a]`;
+    return `${baseClassName} bg-[var(--success-tint)] text-[var(--success-ink)]`;
   }
 
   if (status === "error") {
