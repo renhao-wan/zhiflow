@@ -29,7 +29,7 @@ def list_demos() -> DemoListResponse:
     return DemoListResponse(demos=demos)
 
 
-@router.get("/{demo_id}/cover")
+@router.get("/demo/{demo_id}/cover")
 def get_demo_cover(demo_id: str) -> Response:
     """返回推荐内容当前可用的媒体源封面。"""
     demo = get_demo_by_id(demo_id)
@@ -43,7 +43,7 @@ def get_demo_cover(demo_id: str) -> Response:
     return proxy_public_image(url=cover_url)
 
 
-@router.get("/{demo_id}", response_model=ParseResponse)
+@router.get("/demo/{demo_id}", response_model=ParseResponse)
 def get_demo_detail(demo_id: str) -> dict[str, Any]:
     """
     返回推荐内容的精简公开数据。
