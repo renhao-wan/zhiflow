@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="./assets/readme/hero.svg" width="100%" alt="知流：把视频与播客变成你的本地知识库">
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/version-v0.1.0-d84a2d" alt="Version v0.1.0">
   <img src="https://img.shields.io/badge/platform-Windows-201d18" alt="Windows">
   <img src="https://img.shields.io/badge/transcription-local--first-776b5d" alt="Local-first transcription">
@@ -13,19 +9,11 @@
 
 ## 你可以用它做什么
 
-<p align="center">
-  <img src="./assets/readme/use-cases.svg" width="100%" alt="快速理解长视频与播客，拆解竞品和创作者内容，并沉淀自己的本地知识库">
-</p>
-
 - **快速理解长内容**：不必完整看完视频或听完播客，先拿到结构、观点和结论。
 - **做竞品拆解与内容研究**：分析创作者的选题、内容结构、论据与表达方式，为自己的创作提供研究材料。
 - **沉淀个人知识库**：把分散在平台里的内容整理成可搜索、可编辑、可长期保存的本地笔记。
 
 ## 从链接到知识稿
-
-<p align="center">
-  <img src="./assets/readme/core-flow.svg" width="100%" alt="粘贴链接，使用本地模型转写音视频，再由 AI 理解内容，最后存进 Obsidian">
-</p>
 
 不用复制内容，也不用手动整理格式。知流在本机完成音视频转写，再把文字交给你选择的 AI 服务生成总结、问答、导图与摘录。
 
@@ -56,10 +44,6 @@
 
 ## Markdown 原生，适配 Obsidian
 
-<p align="center">
-  <img src="./assets/readme/markdown-obsidian.svg" width="100%" alt="知流知识稿可以进入 Obsidian 全文检索、继续建立双链，并使用 Properties 与 Callout">
-</p>
-
 导出的知识稿是普通 `.md` 文件，可以下载，也可以直接写入你选择的 Obsidian Vault：
 
 - 用 **YAML Properties** 保存平台、作者、来源、关键词和处理日期；
@@ -71,10 +55,6 @@
 > 当前导出不会自动生成双链；知流负责生成结构化 Markdown，双链关系由你在 Obsidian 中继续建立。
 
 ## 一份内容，继续整理
-
-<p align="center">
-  <img src="./assets/readme/evidence-workbench.svg" width="100%" alt="同一份内容可以继续生成结构化总结、AI 内容问答、思维导图，以及 AI 金句和手动摘录">
-</p>
 
 不只生成一份总结。你可以直接向当前内容提问，追问观点、依据与结论；也可以展开思维导图，或者让 AI 先找出候选金句，再手动摘下真正对你有用的部分。
 
@@ -137,10 +117,6 @@ cd zhiflow
 
 > [!IMPORTANT]
 > **真实的 AI 总结、内容问答与 AI 校对需要你自己的 API Key。** 在首次弹出的本机窗口里选择服务商并填写 Key；保存后自动写入 `backend/.env`，不会进入网页前端，也不会提交到 Git。
-
-<p align="center">
-  <img src="./assets/readme/api-setup.svg" width="100%" alt="首次启动时配置自己的 AI 服务商、API Key 和模型，保存到本机 backend/.env">
-</p>
 
 如果暂时跳过，链接解析、本地历史、本地语音识别和 Markdown 导出仍可使用，但 AI 总结与问答只能得到本地降级结果。首次启动后，这个窗口不会反复自动出现；需要修改时双击 `02-configure-ai.bat` 重新打开。
 
