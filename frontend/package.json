@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "test:helpers": "tsx --test lib/*.test.ts",
+    "test:helpers": "node scripts/test-helpers.mjs",
     "test:e2e": "playwright test --project=desktop-chromium",
     "build": "next build",
     "start": "next start"
